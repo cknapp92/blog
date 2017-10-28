@@ -1,0 +1,18 @@
+mixin postForm(post = {})
+  form(action=`/add/${post._id || ''}` method="POST" class="card" enctype="multipart/form-data")
+    label(for="name") Title
+    input(type="text" name="name" value=post.name)
+    label(for="description") Body
+    textarea(name="description")= post.description
+    label(for="photo") Photo
+      input(type="file" name ="photo" id="photo" accept="image/png, image/jpeg")
+      if post.photo
+        img(src=`/uploads/${post.photo}`, alt=post.name, width=200)
+    - const choices = ['JavaScript', 'ES6', 'Node', 'Algorithms', 'Web Dev']
+    - const tags = post.tags || []
+    ul.tags
+      each choice in choices
+        .tag.tag__choice
+          input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
+          label(for=choice) #{choice}
+    input(type="submit" value="Post" class="button")

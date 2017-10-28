@@ -1,0 +1,6 @@
+mixin homeCard (post = {}) 
+  h2.title
+    .post
+      img(src=`/uploads/${post.photo}`)
+      a(href=`/posts/${post.slug}`) #{post.name}
+      p= post.description.split(' ').slice(0, 25).join(' ')

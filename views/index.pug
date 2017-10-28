@@ -1,0 +1,25 @@
+extends layout
+
+include mixins/_postCard
+
+block content
+  .background-image
+    .hero-content-area
+      h1.header
+        | Get 
+        span.underline--magical Inspired
+
+
+  .inner
+    h2 Recently Added
+    h2= title
+      .stores
+        each post in posts
+          +postCard(post)
+
+
+
+
+
+
+
