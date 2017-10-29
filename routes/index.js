@@ -43,4 +43,6 @@ router.post('/account', catchErrors(userController.updateAccount));
 
 router.get('/api/search', catchErrors(postController.searchPosts));
 
+router.post('/api/posts/:id/heart', catchErrors(postController.heartPost))
+
 module.exports = router;
